@@ -1,0 +1,357 @@
+.over{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);}
+
+
+
+body{
+    font-family: 'Varela Round', sans-serif;
+}
+
+.hover-opicty:hover{
+    opacity: 0.8;
+}
+.hover-opicty{
+    transition: opacity .5s;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* هي بتخلي البوردر ثابت  */
+}
+.pd-y {  /* هاد كلاس بيعطي بادينج وقت بدك تستخدمو بتحطو عل اتش ام ال ايتيم*/
+    padding: 30px  0;
+}
+
+.ltr-effect{
+    position: relative;
+}
+.ltr-effect:after{
+    position: absolute;
+    content: "";
+    width: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: rgb(59, 49, 55);
+    transition: width 0.5s;
+    z-index: -1;
+}
+.ltr-effect:hover::after{
+    width: 100%; 
+}
+.about-item:hover .about-item-title{
+    color: white;
+}
+
+.contianer{
+    width: 80%;
+    margin: auto;  /* عشان توسط عنصر من نوع بلوك  */
+}
+/* header منفصل كل قسم لحالو ومنعملو ستايل اسهل*/
+.header{
+    position: fixed; /* البوسيشن فيكسيك والبوسيشن ابسليوت بحولو العنصر من دسبلي بلوك الى ان لاين بلوك*/
+    width: 100%; /* هون عطيناه عرض مشان مايصير ان لاين بلوك جرب وشيله */
+    z-index: 10; /* بتحدد اي ايتيم يطلع فوق التاني*/
+    
+}
+.header-content{
+   /* overflow: hidden; هي بتحل مشكله الفلوت */
+}
+.header .logo{
+    width: 40%;
+    float: left;  /* لوبدك العناصر تجي جنب بعض بتحط للعناصر لي بدك ياها كلها يعني لو عنصرين بتحط للعنصرين float*/
+}
+
+
+.header .nav{
+    width:  50%;
+    float: left;   /*هون بدنا هاد ولي فوقو يجو جنب بعض ف حطينا بل تنين float */
+    list-style-type: none;
+    text-align: center;
+}
+
+.header .nav > li{ /*  وقت بدنا نعمل ناف بار منحط الديسبلي بل li*/
+    display:inline-block; /* هون حطينها بل li مشان يصيرو جنب بعض لو حطينها بمكان تاني مارح تشتغل*/
+      text-align:center;
+
+}
+.header .nav > li > a{   /* اي شي رح نعملو رح يكون لل a بس لي جوات الناف يعني وقت عطينها دسبلي بلوك عطينا بس ال*/
+    color: white;
+    font-size: 15px;
+    text-decoration: none;  /* هما لي مانزلو تحت بعض ونحن عاطين دسبلي بلوك لان نحن عطينا ال a بس لي تصير بلوك ما ال li وهي اصلا وحده ف مافي شي تحتا تنزلو*/
+    padding: 30px 15px;
+    display: block; /* عملنها هيك لان هاد عنصر ان لاين ف وقت بيعمل بادينغ بيعمل لليسار ولليمين بس وانا بدي ياه يعمل لفوق ولتحت ف عطيتو ديسبلي بلوك*/
+}
+
+.header .nav > li > a.active::after
+,.header .nav > li > a::after{
+    margin-top: 10px;
+    content: "";
+    display: block;
+    height: 2px;
+    background-color: blue;
+    transition: width 0.5s;
+
+}
+.header .nav > li > a.active::after{
+    width: 0px;
+}
+
+
+.header .nav > li > a::after{  
+    width: 0;
+}
+.header .nav > li > a:hover::after{
+    width: 50px;
+}
+.clear{
+    clear: both;
+}
+
+.drop{
+    position: relative;
+
+}
+.drop-menu{
+    position: absolute;
+    background: rgb(50, 55, 119);
+    width: 100px;
+    text-align: center;
+    left: -10%;
+    top: 80%;
+    opacity: 0;
+    visibility: hidden; /* هون خليناها ماتبين*/
+    transition: opacity 0.5s , visibility 0.5s;
+}
+.drop-menu a{
+    color: white;
+    display:block;
+    padding: 10px;
+    text-decoration: none;
+}
+.drop:hover .drop-menu{ /* هون خلينها يوم نحط الموس عليها تبان طبعا نحن خفيناها فوق*/
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Home section*/
+.home{
+    height: 100vh;
+   background-size: cover;
+   position: relative;
+   background-image: url(../images/background/background1.webp);
+}
+
+.home-content{ /*ملاحظه مهم لو عندك كونتينر كبير اسمو هوم سمي الابناء بأسم الاب مع ديتيل صغير متل هون*/
+position: absolute;/* الأربع اسطر هدول بخلو الديف بنص الصفحه*/
+width: 65%;
+top: 50%;            
+left: 50%;
+transform:translate(-50%,-50%) ;
+text-align: center;
+}
+
+.home .titl{
+    color: rgb(218, 218, 208);
+    font-size: 3rem;
+    text-transform: uppercase;
+    
+}
+.home-desc{
+    margin: 20px 0;
+    color: white;
+    letter-spacing: 5px;
+    line-height: 1.5;
+}
+
+.home .btn{
+    width: 160px;
+    padding: 15px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 19px;
+}
+
+.home .btn-start{
+    margin-right: 10px;
+    background-color: white;
+}
+.home .btn-learn{
+    background: rgb(84, 84, 170);
+    color: white;
+}
+
+/* section header*/
+
+.section-header{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-header .section-title{
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+}
+.section-header .line{
+    display: block;
+    height:5px;
+    background-color: rgb(77, 63, 69);
+    width: 50px;
+    margin: 0  auto  70px auto;
+}
+
+/* about section*/
+.about{
+
+}
+.about-content{
+    overflow: hidden;
+
+}
+.about-item{
+    width: 30%;
+    float: left;
+    text-align: center;
+    border: 1px solid rgb(119, 138, 119);
+    padding: 50px 20px;
+}
+.about-item.mg{ /* وقت بتلزق 2 سيلكتور جنب بعض يعني هاد ايتيم واحد اخد كلاسين*/
+
+     margin: 0 5%;
+}
+.about-item .icon{
+    color: rgb(53, 120, 207);
+    margin-bottom: 10px;
+}
+
+.about-item.title{
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    transition: color 0.5;
+}
+.about-item-desc{
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: rgb(93, 89, 80);
+}
+.read-more{
+ text-decoration: none;
+}
+
+/*portfolio */
+
+.portfolio-content{
+    overflow: hidden;
+}
+.portfolio-item{
+    width: 30%;
+    float: left;
+    margin-bottom: 60px;
+    position: relative;
+    padding: 15px;
+}
+.portfolio-item .layer-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(39, 44, 44 ,0.3);
+    opacity: 0; /*هون خليناها تختفي مشان نظهرها وقت نحط الموس عليها*/
+visibility: hidden;
+    transition: opacity 1s;
+}
+.portfolio-item:hover .layer-content{
+    opacity: 1; /* هون قلنا وقت حط الموس عل يتيم اعملي اوبستي عل كونتينت*/
+ visibility: visible;
+}
+
+.portfolio-item img{
+    width:100% ;
+}
+.portfolio-item.mg{
+    margin: 0 5%;
+
+}
+.layer-content .layer-info{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 60%;
+    transform: translate(-50% , -50%);
+    text-align: center;
+}
+.layer-content-title{
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px ;
+
+}
+
+.layer-content .category{
+    font-weight: 400;
+    font-size: large;
+    color: rgb(32, 2, 116);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+    position: relative;
+    top: 10px;
+}
+
+.layer-content i{
+    display: inline-block; /* بتخلي لايتيم لي محدد عليه يقعدو جنب بعض*/
+    width: 40px;
+    height: 40px;
+    background-color: #6195ff;
+}
+.layer-content a i{
+    line-height: 40px;
+}
+
+/* offer section*/
+
+.offer-item{
+    width: 30%;
+    float: left;
+     margin-bottom: 20px ;
+     border: 1px solid #9999;
+     padding: 20px 15px 30px 70px;
+     position: relative;
+}
+
+.offer-item.mg{
+    margin: 0 5%;
+}
+
+.offer-item .icon{
+    position: absolute;
+    left: 15px;
+    top: 30px;
+    color: #6195ff;
+}
+.offer-item-title{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    transition: color 0.5;
+}
+.offer-item-desc{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #999;
+}
+
+.offer-item:hover .offer-item-title{
+    color: white;
+}
+
